@@ -1,0 +1,27 @@
+syntax = "proto3";
+package unrealcv;
+import "google/protobuf/any.proto";
+
+message ExecStatus {
+    enum StatusType {
+        OK = 0;
+        Error = 1;
+    }
+
+    StatusType status = 1;
+    string status_message = 2;
+    google.protobuf.Any message = 3;
+    int32 test_field = 4;
+}
+
+message Image {
+    enum ImageFormatType {
+        R8G8B8 = 0;
+    }
+    ImageFormatType format = 1;
+    int32 len = 2;
+    int32 width = 3;
+    int32 height = 4;
+    int32 channel = 5;
+    bytes data = 6;
+}
